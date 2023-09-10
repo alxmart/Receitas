@@ -1,7 +1,10 @@
 package com.luizafmartinez.receitas
 
+import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
+import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView.Adapter
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
 
@@ -14,23 +17,34 @@ class ReceitasAdapter : Adapter<ReceitasAdapter.ReceitasViewHolder>() {
         listaReceitas = lista
         notifyDataSetChanged()
     }
+    // View -> Super classe
+    //Button, CardView, ImageView, TextView....
 
     inner class ReceitasViewHolder(
         private val itemView: View
     ) : ViewHolder( itemView ) {
-
+        private var imageReceita: ImageView = itemView.findViewById(R.id.image_receita)
+        private var textPreparo:  TextView  = itemView.findViewById(R.id.text_preparo)
+        private var textTempo:    TextView  = itemView.findViewById(R.id.text_preparo)
+        private var textTitulo:   TextView  = itemView.findViewById(R.id.text_titulo)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ReceitasViewHolder {
-        TODO("Not yet implemented")
+      //Inflate:converter xml em objeto do tipo View
+      val inflater = LayoutInflater.from(parent.context)
+      val itemView = inflater.inflate(
+            R.layout.item_receita, parent, false
+      )
+      return ReceitasViewHolder(itemView)
+    }
+
+    override fun onBindViewHolder(holder: ReceitasViewHolder, position: Int) {
+
+
     }
 
     override fun getItemCount(): Int {
         return listaReceitas.size
-    }
-
-    override fun onBindViewHolder(holder: ReceitasViewHolder, position: Int) {
-        TODO("Not yet implemented")
     }
 
 }

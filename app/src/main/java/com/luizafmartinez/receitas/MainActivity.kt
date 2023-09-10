@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.RecyclerView
 class MainActivity : AppCompatActivity() {
 
     private lateinit var rvReceitas: RecyclerView
+    //Tipo: RecyclerView,ViewGroup, View
     private lateinit var receitasAdapter: ReceitasAdapter
     private val listaReceitas = listOf(
         Receita("ESCONDIDINHO DE CAMARÃO",R.drawable.carne1,"25 min"),
