@@ -8,6 +8,8 @@ import androidx.recyclerview.widget.RecyclerView.ViewHolder
 //Tipos: ReceitaAdapter e Adapter
 class ReceitasAdapter : Adapter<ReceitasAdapter.ReceitasViewHolder>() {
 
+    private val listaReceitas = emptyList<>()
+
     inner class ReceitasViewHolder(
         private val itemView: View
     ) : ViewHolder( itemView ) {
