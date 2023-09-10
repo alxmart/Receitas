@@ -2,6 +2,7 @@ package com.luizafmartinez.receitas
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 
 class MainActivity : AppCompatActivity() {
@@ -22,7 +23,11 @@ class MainActivity : AppCompatActivity() {
         receitasAdapter = ReceitasAdapter()
         rvReceitas = findViewById(R.id.rv_receitas)
         rvReceitas.adapter = receitasAdapter
+
+        rvReceitas.layoutManager = LinearLayoutManager(this)
+
     }
+
     override fun onStart() {
         super.onStart()
         receitasAdapter.atualizarLista(listaReceitas)

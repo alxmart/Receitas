@@ -5,6 +5,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView.Adapter
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
 
@@ -23,10 +24,20 @@ class ReceitasAdapter : Adapter<ReceitasAdapter.ReceitasViewHolder>() {
     inner class ReceitasViewHolder(
         private val itemView: View
     ) : ViewHolder( itemView ) {
-        private var imageReceita: ImageView = itemView.findViewById(R.id.image_receita)
-        private var textPreparo:  TextView  = itemView.findViewById(R.id.text_preparo)
-        private var textTempo:    TextView  = itemView.findViewById(R.id.text_preparo)
-        private var textTitulo:   TextView  = itemView.findViewById(R.id.text_titulo)
+        var imageReceita: ImageView = itemView.findViewById(R.id.image_receita)
+        var textTempo:    TextView  = itemView.findViewById(R.id.text_preparo)
+        var textTitulo:   TextView  = itemView.findViewById(R.id.text_titulo)
+
+        fun bind( receita: Receita) {
+
+            textTitulo.text = receita.titulo
+          textTempo.text = receita.tempoPreparo
+           imageReceita.setImageDrawable(
+                ContextCompat.getDrawable(
+                    itemView.context, receita.IdImagem
+                )
+            )
+        }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ReceitasViewHolder {
@@ -39,8 +50,7 @@ class ReceitasAdapter : Adapter<ReceitasAdapter.ReceitasViewHolder>() {
     }
 
     override fun onBindViewHolder(holder: ReceitasViewHolder, position: Int) {
-
-
+        val receita = listaReceitas[position]
     }
 
     override fun getItemCount(): Int {
