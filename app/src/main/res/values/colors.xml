@@ -2,4 +2,7 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+
+    <!--Cores Sólidas-->
+    <color name="laranja">#E76C14</color>
 </resources>
