@@ -26,7 +26,7 @@ class ReceitasAdapter : Adapter<ReceitasAdapter.ReceitasViewHolder>() {
     }
 
     override fun getItemCount(): Int {
-        TODO("Not yet implemented")
+        return listaReceitas.size
     }
 
     override fun onBindViewHolder(holder: ReceitasViewHolder, position: Int) {
