@@ -8,9 +8,11 @@ import androidx.recyclerview.widget.RecyclerView.ViewHolder
 //Tipos: ReceitaAdapter e Adapter
 class ReceitasAdapter : Adapter<ReceitasAdapter.ReceitasViewHolder>() {
 
-    private val listaReceitas = emptyList<Receita>()
-    fun atualizarLista(lista: List<Receita>) {
+    private var listaReceitas = emptyList<Receita>()
 
+    fun atualizarLista(lista: List<Receita>) {
+        listaReceitas = lista
+        notifyDataSetChanged()
     }
 
     inner class ReceitasViewHolder(

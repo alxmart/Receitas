@@ -14,7 +14,6 @@ class MainActivity : AppCompatActivity() {
         Receita("ESCONDIDINHO DE CARNE SECA",R.drawable.carne4,"55 min"),
         Receita("ROCAMBOLE DE CARNE MOÍDA",R.drawable.carne3,"1hora"),
     )
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -22,8 +21,10 @@ class MainActivity : AppCompatActivity() {
         receitasAdapter = ReceitasAdapter()
         rvReceitas = findViewById(R.id.rv_receitas)
         rvReceitas.adapter = receitasAdapter
-
-
-
     }
+    override fun onStart() {
+        super.onStart()
+        receitasAdapter.atualizarLista(listaReceitas)
+    }
+
 }
