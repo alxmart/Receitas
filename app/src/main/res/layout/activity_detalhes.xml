@@ -7,7 +7,7 @@
     tools:context=".DetalhesActivity">
 
     <TextView
-        android:id="@+id/textDetalhesPreparo"
+        android:id="@+id/text_detalhe_tempo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -18,7 +18,7 @@
         app:layout_constraintTop_toTopOf="@+id/textView5" />
 
     <ImageView
-        android:id="@+id/imageDetalheReceita"
+        android:id="@+id/image_detalhe_receita"
         android:layout_width="0dp"
         android:layout_height="250dp"
         android:scaleType="centerCrop"
@@ -29,7 +29,7 @@
         app:srcCompat="@drawable/carne1" />
 
     <TextView
-        android:id="@+id/textDetalheTitulo"
+        android:id="@+id/text_detalhe_titulo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -40,7 +40,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageDetalheReceita" />
+        app:layout_constraintTop_toBottomOf="@+id/image_detalhe_receita" />
 
     <TextView
         android:id="@+id/textView5"
@@ -52,8 +52,8 @@
         android:text="Preparo"
         android:textSize="12sp"
         android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="@+id/textDetalheTitulo"
-        app:layout_constraintTop_toBottomOf="@+id/textDetalheTitulo" />
+        app:layout_constraintStart_toStartOf="@+id/text_detalhe_titulo"
+        app:layout_constraintTop_toBottomOf="@+id/text_detalhe_titulo" />
 
     <Button
         android:id="@+id/btnVoltar"
