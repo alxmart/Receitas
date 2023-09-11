@@ -19,9 +19,14 @@ class DetalhesActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_detalhes)
 
+        btnVoltar = findViewById(R.id.btn_voltar)
         imageReceita = findViewById(R.id.image_detalhe_receita)
         textTitulo = findViewById(R.id.text_detalhe_titulo)
         textTempo = findViewById(R.id.text_detalhe_tempo)
+
+        btnVoltar.setOnClickListener {
+            finish()
+        }
 
         val extras = intent.extras
         val receita = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
