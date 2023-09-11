@@ -30,20 +30,18 @@ class DetalhesActivity : AppCompatActivity() {
 
         val extras = intent.extras
         val receita = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
-                extras?.getParcelable("receita", Receita::class.java)
-            } else {
-                extras?.getParcelable("receita")
-            }
-            if (receita != null) {
-                textTitulo.text = receita.titulo
-                textTempo.text = receita.tempoPreparo
-                imageReceita.setImageDrawable(
-                    ContextCompat.getDrawable(
-                        this, receita.IdImagem
-                    )
-                )
-            }
-
-
+            extras?.getParcelable("receita", Receita::class.java)
+        } else {
+            extras?.getParcelable("receita")
         }
+        if (receita != null) {
+            textTitulo.text = receita.titulo
+            textTempo.text = receita.tempoPreparo
+            imageReceita.setImageDrawable(
+                ContextCompat.getDrawable(
+                    this, receita.IdImagem
+                )
+            )
+        }
+    }
 }
