@@ -10,7 +10,10 @@ import androidx.recyclerview.widget.RecyclerView.Adapter
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
 
 //Tipos: ReceitaAdapter e Adapter
-class ReceitasAdapter : Adapter<ReceitasAdapter.ReceitasViewHolder>() {
+
+class ReceitasAdapter(
+    private val onClick: (Receita) -> Unit
+) : Adapter<ReceitasAdapter.ReceitasViewHolder>() {
 
     private var listaReceitas = emptyList<Receita>()
 
@@ -24,15 +27,15 @@ class ReceitasAdapter : Adapter<ReceitasAdapter.ReceitasViewHolder>() {
     inner class ReceitasViewHolder(
         private val itemView: View
     ) : ViewHolder( itemView ) {
+
         var imageReceita: ImageView = itemView.findViewById(R.id.image_receita)
         var textTempo:    TextView  = itemView.findViewById(R.id.text_preparo)
         var textTitulo:   TextView  = itemView.findViewById(R.id.text_titulo)
 
         fun bind( receita: Receita) {
-
             textTitulo.text = receita.titulo
-          textTempo.text = receita.tempoPreparo
-           imageReceita.setImageDrawable(
+            textTempo.text = receita.tempoPreparo
+            imageReceita.setImageDrawable(
                 ContextCompat.getDrawable(
                     itemView.context, receita.IdImagem
                 )
@@ -42,15 +45,16 @@ class ReceitasAdapter : Adapter<ReceitasAdapter.ReceitasViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ReceitasViewHolder {
       //Inflate:converter xml em objeto do tipo View
-      val inflater = LayoutInflater.from(parent.context)
+      val inflater = LayoutInflater.from( parent.context )
       val itemView = inflater.inflate(
             R.layout.item_receita, parent, false
       )
-      return ReceitasViewHolder(itemView)
+      return ReceitasViewHolder( itemView )
     }
 
     override fun onBindViewHolder(holder: ReceitasViewHolder, position: Int) {
         val receita = listaReceitas[position]
+        holder.bind( receita )
     }
 
     override fun getItemCount(): Int {
